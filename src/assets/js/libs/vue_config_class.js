@@ -2,6 +2,9 @@
  * @fileOverview vue配置所需数据处理类
  * @author liuyouren
  * @date 2018/08/17
+ * 本类为vue.config.js提供基础服务，主要业务为根据当前命令获得有效的页面信息，将页面信息整合为多页数据结构，供vue.config.js文件使用；
+ * 也同时提供baseUrl属性，因涉及到多应用会有多个baseURL，baseUrl属性在npm run serve时恒为dev，
+ * 在npm run build时，因为构建必须制定一个应用名，所以baseURL为对应的config.app.js中的正确配置
  */
 
 const path = require('path')
