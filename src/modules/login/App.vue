@@ -11,7 +11,7 @@
 <script>
 export default {
   methods: {
-    toTest() {
+    toTest () {
       location.href = '/test.html'
     }
   }
