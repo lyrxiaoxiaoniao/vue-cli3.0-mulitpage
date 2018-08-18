@@ -25,7 +25,8 @@ module.exports = {
   baseUrl: baseURI + vueConf.baseUrl, // 根域上下文目录
   // outputDir: 'dist', // 构建输出目录
   outputDir: `dist/${process.argv.slice(3)}`, // 构建输出目录
-  assetsDir: 'assets', // 静态资源目录 (js, css, img, fonts)
+  // assetsDir: 'assets', // 静态资源目录 (js, css, img, fonts)
+  assetsDir: 'static', // 静态资源目录 (js, css, img, fonts)
   pages: vueConf.pages,
   lintOnSave: true, // 是否开启eslint保存检测，有效值：ture | false | 'error'
   runtimeCompiler: true, // 运行时版本是否需要编译
@@ -80,6 +81,7 @@ module.exports = {
     // 单页插件相关配置 https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
   },
   devServer: {
+    publicPath: '/',
     open: true,
     host: '0.0.0.0',
     port: 8080,
