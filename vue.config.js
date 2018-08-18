@@ -8,7 +8,9 @@ const path = require('path')
 const debug = process.env.NODE_ENV !== 'production'
 const VueConf = require('./src/assets/js/libs/vue_config_class')
 const vueConf = new VueConf(process.argv)
-
+// const baseURI = 'https://www.oss.http'
+const baseURI = ''
+console.log(baseURI + vueConf.baseUrl, 'baseURI + vueConf.baseUrl')
 console.log('')
 console.log(
   '本地启动或构建的文件信息 | 开始--------------------------------------------------------------'
@@ -20,7 +22,7 @@ console.log(
 console.log('')
 
 module.exports = {
-  baseUrl: vueConf.baseUrl, // 根域上下文目录
+  baseUrl: baseURI + vueConf.baseUrl, // 根域上下文目录
   // outputDir: 'dist', // 构建输出目录
   outputDir: `dist/${process.argv.slice(3)}`, // 构建输出目录
   assetsDir: 'assets', // 静态资源目录 (js, css, img, fonts)
