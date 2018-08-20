@@ -23,3 +23,16 @@ yarn run build {mudule}
 ```
 yarn run lint
 ```
+
+### Commands
+- 指定本地服务启动的运行模块：
+
+	```
+	yarn run serve | yarn serve
+	```
+
+- 指定单独运行`config.app.js`里面已经声明过的模块名
+
+	```
+	yarn run serve --start [modules] | yarn serve --start [modules]
+	```

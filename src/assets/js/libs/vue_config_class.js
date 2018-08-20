@@ -20,6 +20,7 @@ module.exports = class VueConf {
     this.rawArgv = argv.slice(2)
     this.newArgv = argv.slice(3)
     // this.baseUrl = 'dev'
+    console.log(argv, 'argv')
     this.baseUrl = ''
     this.pages = Object.create(null)
     this.tempSet = new Set()
