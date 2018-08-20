@@ -42,6 +42,8 @@ module.exports = class VueConf {
     if (this.rawArgv[0] === 'serve') {
       if (this.rawArgv.length === 1) {
         result = allPages
+      } else if (this.newArgv[0] === '--mode') {
+        result = allPages
       } else {
         for (let item of this.newArgv) Reflect.set(result, item, allPages[item])
       }
