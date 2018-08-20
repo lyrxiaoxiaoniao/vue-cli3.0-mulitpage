@@ -17,8 +17,8 @@
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-service": "^3.0.0",
     "@vue/eslint-config-standard": "^3.0.0",
-    "less": "^3.0.4",
-    "less-loader": "^4.1.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.17"
   }
 }

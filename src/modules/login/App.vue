@@ -6,7 +6,11 @@
       <router-link to="/page">page</router-link> |
       <span @click="toTest">test</span>
     </div>
-    <router-view/>
+    <transition
+      enter-active-class="animated zoomIn"
+    >
+      <router-view/>
+    </transition>
   </div>
 </template>
 <script>
@@ -35,5 +39,11 @@ export default {
       color: #42b983;
     }
   }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

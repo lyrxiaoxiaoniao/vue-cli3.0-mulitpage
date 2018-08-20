@@ -2,12 +2,25 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <span @click="tologin">login</span>
     </div>
-    <router-view/>
+    <transition 
+      enter-active-class="animated fadeInLeft"
+    >
+      <router-view/>
+    </transition>
   </div>
 </template>
-
+<script>
+export default {
+  methods: {
+    tologin () {
+      location.href = '/login.html'
+    }
+  }
+}
+</script>
 <style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
