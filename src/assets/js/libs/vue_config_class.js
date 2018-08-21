@@ -15,8 +15,10 @@ const handleError = Symbol.for('handleError')
 
 module.exports = class VueConf {
   constructor (argv) {
-    this.globPathHtml = ['./src/modules/**/index.html', 'template'] // 入口模板正则
-    this.globPathJs = ['./src/modules/**/main.js', 'entry'] // 入口脚本正则
+    // this.globPathHtml = ['./src/modules/**/index.html', 'template'] // 入口模板正则
+    // this.globPathJs = ['./src/modules/**/main.js', 'entry'] // 入口脚本正则
+    this.globPathHtml = ['./src/views/**/index.html', 'template'] // 入口模板正则
+    this.globPathJs = ['./src/views/**/main.js', 'entry'] // 入口脚本正则
     this.rawArgv = argv.slice(2)
     this.newArgv = argv.slice(3)
     // this.baseUrl = 'dev'
