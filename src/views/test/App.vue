@@ -16,7 +16,7 @@
 export default {
   methods: {
     tologin () {
-      location.href = '/login.html'
+      window.open('/login.html')
     }
   }
 }

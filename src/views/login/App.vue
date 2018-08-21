@@ -17,7 +17,7 @@
 export default {
   methods: {
     toTest () {
-      location.href = '/test.html'
+      window.open('/test.html')
     }
   }
 }
