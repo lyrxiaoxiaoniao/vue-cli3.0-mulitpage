@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 // 超时时间
-axios.defaults.timeout = 5000
+axios.defaults.timeout = 15000
 // request拦截器
 axios.interceptors.request.use(
   config => {
