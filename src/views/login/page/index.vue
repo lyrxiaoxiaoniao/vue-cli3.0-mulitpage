@@ -1,11 +1,12 @@
 <template>
-    <div>测试一下{{masg}}
+    <div class="name">测试一下{{masg}}
       <el-col>{{date | parseTime('{y}-{m}-{d} {a} {h}:{i}:{s}')}}</el-col>
       <el-col>{{time | timeAgo}}</el-col>
     </div>
 </template>
 
 <script>
+import $aa from 'jquery'
 import http from '@/api/index.js'
 export default {
   data() {
@@ -21,8 +22,10 @@ export default {
   methods: {
     async getData() {
       try {
+        console.log(12312312)
+        const a = $aa('.name')
+        console.log(a)
         const api = await http.GET('/health')
-        console.log(api, 'api')
       } catch (error) {}
     }
   }

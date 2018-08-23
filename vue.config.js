@@ -43,6 +43,7 @@ module.exports = {
     Object.assign(config, {
       // 开发生产共同配置
       resolve: {
+        extensions: ['.js', '.jsx', '.vue', '.json'],
         alias: {
           '@': path.resolve(__dirname, './src'),
           '@c': path.resolve(__dirname, './src/components'),
@@ -53,6 +54,13 @@ module.exports = {
   },
   chainWebpack: config => {
     // webpack链接API，用于生成和修改webapck配置，https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
+    // config.externals({
+    //   jquery: {
+    //     commonjs: 'jQuery',
+    //     commonjs2: 'jQuery',
+    //     root: 'jQuery'
+    //   }
+    // })
     if (debug) {
       // 本地开发配置
     } else {
@@ -74,7 +82,8 @@ module.exports = {
       stylus: {}
     }
   },
-  parallel: require('os').cpus().length > 1, // 构建时开启多进程处理babel编译
+  // parallel: require('os').cpus().length > 1, // 构建时开启多进程处理babel编译
+  parallel: true, // 构建时开启多进程处理babel编译
   pluginOptions: {
     // 第三方插件配置
   },
