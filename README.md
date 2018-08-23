@@ -8,7 +8,7 @@
 
 ## TODO
 1. ~~多么模块单独打包 （已完成）~~
-2. ~~element-UI （已完成~~
+2. ~~element-UI （已完成)~~
 
 ## Project setup
 ```
