@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/page">page</router-link> |
+      <router-link to="/dash">dash</router-link> |
       <span @click="toTest">test</span>
     </div>
     <transition

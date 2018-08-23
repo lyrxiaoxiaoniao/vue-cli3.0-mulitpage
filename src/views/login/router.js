@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home.vue'
-
+import Dash from '@/dash/index.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -12,6 +12,19 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/dash',
+      name: 'dash',
+      redirect: '/dash/page',
+      component: Dash,
+      children: [
+        {
+          path: 'page',
+          name: 'page',
+          component: () => import(/* webpackChunkName: "about" */ './page/index.vue')
+        }
+      ]
     },
     {
       path: '/about',
