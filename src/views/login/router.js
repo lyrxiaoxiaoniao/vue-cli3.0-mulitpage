@@ -22,7 +22,7 @@ export default new Router({
         {
           path: 'page',
           name: 'page',
-          component: () => import(/* webpackChunkName: "about" */ './page/index.vue')
+          component: () => import(/* webpackChunkName: "page" */ './page/index.vue')
         }
       ]
     },
@@ -37,7 +37,7 @@ export default new Router({
     {
       path: '/page',
       name: 'page',
-      component: () => import(/* webpackChunkName: "about" */ './page/index.vue')
+      component: () => import(/* webpackChunkName: "page" */ './page/index.vue')
     }
   ]
 })
