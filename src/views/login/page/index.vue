@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import http from '@/api/index.js'
 export default {
   data() {
     return {
@@ -14,8 +15,17 @@ export default {
       time: 1534821065
     }
   },
-  mounted() {},
-  methods: {}
+  mounted() {
+    this.getData()
+  },
+  methods: {
+    async getData() {
+      try {
+        const api = await http.GET('/health')
+        console.log(api, 'api')
+      } catch (error) {}
+    }
+  }
 }
 </script>
 
