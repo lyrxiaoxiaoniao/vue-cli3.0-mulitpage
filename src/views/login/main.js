@@ -8,7 +8,8 @@ import * as filters from '../../filters/index' // 全局过滤器
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import '../../styles/index.css'
-
+import moduleName from 'jquery'
+console.log(moduleName, 'jQuery')
 // 注册全局实用程序过滤器（register global utility filters）.
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])

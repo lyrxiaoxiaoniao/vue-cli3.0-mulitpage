@@ -10,6 +10,7 @@ const VueConf = require('./src/assets/js/libs/vue_config_class')
 const vueConf = new VueConf(process.argv)
 // const baseURI = 'https://www.oss.com' // 这里可以配置oss/cdn路径
 const baseURI = ''
+console.log(process.argv, 'process.argv')
 console.log(baseURI + vueConf.baseUrl, 'baseURI + vueConf.baseUrl')
 console.log('')
 console.log(
@@ -54,13 +55,15 @@ module.exports = {
   },
   chainWebpack: config => {
     // webpack链接API，用于生成和修改webapck配置，https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
-    // config.externals({
-    //   jquery: {
-    //     commonjs: 'jQuery',
-    //     commonjs2: 'jQuery',
-    //     root: 'jQuery'
-    //   }
-    // })
+    config.externals({
+      jquery: {
+        root: 'jQuery',
+        global: 'jQuery',
+        commonjs: 'jquery',
+        commonjs2: 'jquery',
+        amd: 'jquery'
+      }
+    })
     if (debug) {
       // 本地开发配置
     } else {
