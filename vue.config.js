@@ -10,8 +10,8 @@ const VueConf = require('./src/assets/js/libs/vue_config_class')
 const vueConf = new VueConf(process.argv)
 // const baseURI = 'https://www.oss.com' // 这里可以配置oss/cdn路径
 const baseURI = ''
-console.log(process.argv, 'process.argv')
-console.log(baseURI + vueConf.baseUrl, 'baseURI + vueConf.baseUrl')
+// console.log(process.argv, 'process.argv')
+// console.log(baseURI + vueConf.baseUrl, 'baseURI + vueConf.baseUrl')
 console.log('')
 console.log(
   '----------------------本地启动或构建的文件信息 | start-----------------------------'

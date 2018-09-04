@@ -27,6 +27,7 @@ module.exports = class AppConf {
     this.apps = appConfig.APP_NAME
     this.modulesList = []
     this.urlsObject = Object.create(null)
+    this.titlesObject = Object.create(null)
   }
   get modules () {
     try {
@@ -44,12 +45,22 @@ module.exports = class AppConf {
       console.log('获取页面路径时出错：', err)
     }
   }
+  get titles () {
+    try {
+      this[resolveConf]()
+      return this.titlesObject
+    } catch (err) {
+      console.log('获取页面标题时出错：', err)
+    }
+  }
   [resolveConf] () {
     for (let [key, item] of this.appConfig.APP_LIST.entries()) {
       const appName = this.appConfig.APP_NAME[key]
       this.modulesList.push(item.INDEX_HTML)
       Reflect.set(this.urlsObject, appName, Object.create(null))
       this.urlsObject[appName][item.INDEX_HTML] = this[parseUrl]([], item.INDEX_HTML)
+      Reflect.set(this.titlesObject, appName, Object.create(null))
+      this.titlesObject[appName].title = item.TITLE
       this[fnRecursive](appName, [], item.CONTEXT_DIRECTORY)
     }
   }

@@ -12,7 +12,6 @@ const glob = require('glob')
 const AppConf = require('./apps_config_class')
 const appconf = new AppConf()
 const handleError = Symbol.for('handleError')
-
 module.exports = class VueConf {
   constructor (argv) {
     // this.globPathHtml = ['./src/modules/**/index.html', 'template'] // 入口模板正则
@@ -56,7 +55,7 @@ module.exports = class VueConf {
     return result
   }
   vueEntryPages (globPath, type) {
-    const [pages, tempSet, validPages] = [this.pages, this.tempSet, this.validPages()]
+    const [pages, tempSet, validPages, titles] = [this.pages, this.tempSet, this.validPages(), appconf.titles]
     let [matchList, tempArr, modName] = [glob.sync(globPath), [], null]
     if (matchList.length !== 0) {
       for (let entry of matchList) {
@@ -66,7 +65,7 @@ module.exports = class VueConf {
           continue
         } else {
           if (tempSet.has(modName)) {
-            Object.assign(pages[modName], { [type]: entry, 'filename': validPages[modName] })
+            Object.assign(pages[modName], { [type]: entry, 'filename': validPages[modName], ...titles[modName] })
           } else {
             Reflect.set(pages, modName, { [type]: entry }) && tempSet.add(modName)
           }
