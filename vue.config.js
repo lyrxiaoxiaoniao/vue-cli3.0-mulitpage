@@ -16,8 +16,7 @@ console.log('')
 console.log(
   '----------------------本地启动或构建的文件信息 | start-----------------------------'
 )
-console.log(vueConf)
-// console.log(vueConf.pages)
+console.log(vueConf.pages)
 console.log(
   '----------------------本地启动或构建的文件信息 | end-------------------------------'
 )
@@ -77,7 +76,7 @@ module.exports = {
     // 配置高于chainWebpack中关于css loader的配置
     // modules: true, // 是否开启支持‘foo.module.css’样式,-----element-ui会引入会报错
     modules: false, // 是否开启支持‘foo.module.css’样式
-    extract: true, // 是否使用css分离插件 ExtractTextPlugin，采用独立样式文件载入，不采用<style>方式内联至html文件中
+    // extract: true, // 是否使用css分离插件 ExtractTextPlugin，采用独立样式文件载入，不采用<style>方式内联至html文件中
     sourceMap: false, // 是否在构建样式地图，false将提高构建速度
     loaderOptions: {
       // css预设器配置项

@@ -2,6 +2,7 @@
     <div class="name">测试一下{{masg}}
       <el-col>{{date | parseTime('{y}-{m}-{d} {a} {h}:{i}:{s}')}}</el-col>
       <el-col>{{time | timeAgo}}</el-col>
+      <iframe src="./a.html"></iframe>
     </div>
 </template>
 
