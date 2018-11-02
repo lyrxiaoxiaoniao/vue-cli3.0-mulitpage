@@ -58,13 +58,10 @@ module.exports = {
   chainWebpack: config => {
     // webpack链接API，用于生成和修改webapck配置，https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
     config.externals({
-      jquery: {
-        root: 'jQuery',
-        global: 'jQuery',
-        commonjs: 'jquery',
-        commonjs2: 'jquery',
-        amd: 'jquery'
-      }
+      'vue': 'Vue',
+      'vuex': 'Vuex',
+      'vue-router': 'VueRouter',
+      'jquery': 'jQuery'
     })
     if (debug) {
       // 本地开发配置
