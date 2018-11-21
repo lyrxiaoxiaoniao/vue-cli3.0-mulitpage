@@ -4,16 +4,28 @@
  */
 
 const fs = require('fs')
-
+const _ = require('lodash')
+const rawArgv = process.argv.slice(2)
+console.log('argv', rawArgv)
 module.exports = function getPages(path) {
   let arr = {}
   // 检查是否存在目录
   let existPath = fs.existsSync(path)
-
   if (existPath) {
+    let commonResult = []
     // 获取目录下的全部文件
     let readdirSync = fs.readdirSync(path)
-    readdirSync.map(v => {
+    if (rawArgv.includes('serve')) {
+      if (rawArgv.length === 1 || rawArgv.includes('--mode')) {
+        commonResult = [...readdirSync]
+      } else {
+        // 比较模块目录数组与命令行数组，返回两个数组相同模块
+        commonResult = [..._.intersection(readdirSync, rawArgv)]
+      }
+    } else if (rawArgv.includes('build')) {
+      commonResult.push(rawArgv[1])
+    }
+    commonResult.map(v => {
       let currentPath = `${path}/${v}`
       // 判断当前文件是不是文件夹
       let isDirector = fs.statSync(currentPath).isDirectory()

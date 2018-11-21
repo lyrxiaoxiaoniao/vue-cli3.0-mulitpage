@@ -8,15 +8,19 @@ const path = require('path')
 const debug = process.env.NODE_ENV !== 'production'
 const VueConf = require('./src/assets/js/libs/vue_config_class')
 const vueConf = new VueConf(process.argv)
-// const vueConf = require('./mulitpage')
+// const getPages = require('./config/getPages')
+// const pages = getPages('./src/views')
+const moduleFilePath = process.argv.slice(3)[0]
 // const baseURI = 'https://www.oss.com' // 这里可以配置oss/cdn路径
 const baseURI = ''
 // console.log(process.argv, 'process.argv', process.env.NODE_ENV)
+console.log(baseURI, 'baseURI')
 console.log('')
 console.log(
   '----------------------本地启动或构建的文件信息 | start-----------------------------'
 )
 console.log(vueConf.pages)
+// console.log(pages)
 console.log(
   '----------------------本地启动或构建的文件信息 | end-------------------------------'
 )
@@ -27,9 +31,17 @@ module.exports = {
   // outputDir: 'dist', // 构建输出目录
   // assetsDir: 'static', // 静态资源目录 (js, css, img, fonts)
   // pages: vueConf,
-  baseUrl: baseURI + vueConf.baseUrl, // 根域上下文目录
-  outputDir: `dist/${process.argv.slice(3)}`, // 构建输出目录
-  assetsDir: 'assets', // 静态资源目录 (js, css, img, fonts)
+  baseUrl: `${baseURI + moduleFilePath}`, // 根域上下文目录
+  outputDir: `dist/${moduleFilePath}`, // 构建输出目录
+  assetsDir: 'static', // 静态资源目录 (js, css, img, fonts)
+  // pages: {
+  //   login: {
+  //     filename: 'login.html',
+  //     template: './src/views/login/index.html',
+  //     entry: './src/views/login/main.js'
+  //   }
+  // },
+  // pages: pages,
   pages: vueConf.pages,
   lintOnSave: true, // 是否开启eslint保存检测，有效值：ture | false | 'error'
   runtimeCompiler: true, // 运行时版本是否需要编译

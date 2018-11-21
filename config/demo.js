@@ -4,7 +4,6 @@
  */
 
 const fs = require('fs')
-const argv = process.argv
 module.exports = function getFilePath(path) {
   let arr = {}
   // 检查是否存在目录
