@@ -11,7 +11,7 @@ const vueConf = new VueConf(process.argv)
 // const vueConf = require('./mulitpage')
 // const baseURI = 'https://www.oss.com' // 这里可以配置oss/cdn路径
 const baseURI = ''
-// console.log(process.argv, 'process.argv')
+// console.log(process.argv, 'process.argv', process.env.NODE_ENV)
 console.log('')
 console.log(
   '----------------------本地启动或构建的文件信息 | start-----------------------------'
