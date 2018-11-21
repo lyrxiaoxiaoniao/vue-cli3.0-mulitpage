@@ -5,10 +5,12 @@
  */
 
 const path = require('path')
+const minimist = require('minimist')
 const debug = process.env.NODE_ENV !== 'production'
-const VueConf = require('./src/assets/js/libs/vue_config_class')
-const vueConf = new VueConf(process.argv)
-// const vueConf = require('./mulitpage')
+const vueConf = require('./config/vue_config_class')
+const _argv = minimist(process.argv)
+const fileDir = _argv._[3] || _argv.name
+console.log(fileDir)
 // const baseURI = 'https://www.oss.com' // 这里可以配置oss/cdn路径
 const baseURI = ''
 // console.log(process.argv, 'process.argv', process.env.NODE_ENV)
@@ -28,8 +30,8 @@ module.exports = {
   // assetsDir: 'static', // 静态资源目录 (js, css, img, fonts)
   // pages: vueConf,
   baseUrl: baseURI + vueConf.baseUrl, // 根域上下文目录
-  outputDir: `dist/${process.argv.slice(3)}`, // 构建输出目录
-  assetsDir: 'assets', // 静态资源目录 (js, css, img, fonts)
+  outputDir: `dist/${fileDir}`, // 构建输出目录
+  assetsDir: 'static', // 静态资源目录 (js, css, img, fonts)
   pages: vueConf.pages,
   lintOnSave: true, // 是否开启eslint保存检测，有效值：ture | false | 'error'
   runtimeCompiler: true, // 运行时版本是否需要编译

@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link> |
       <span @click="tologin">login</span>
     </div>
-    <transition 
+    <transition
       enter-active-class="animated fadeInLeft"
     >
       <router-view/>
