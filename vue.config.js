@@ -9,6 +9,7 @@ const minimist = require('minimist')
 const debug = process.env.NODE_ENV !== 'production'
 const vueConf = require('./config/vue_config_class')
 const _argv = minimist(process.argv)
+console.log(_argv, '_argv')
 const fileDir = _argv._[3] || _argv.name
 console.log(fileDir)
 // const baseURI = 'https://www.oss.com' // 这里可以配置oss/cdn路径

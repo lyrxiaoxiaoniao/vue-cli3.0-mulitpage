@@ -105,15 +105,15 @@ class VueConfig {
     if (mode_type_cli === 'serve') {
       if (!mode_name_cli) {
         Object.keys(allPages).forEach((v) => {
-          if (v) result[v] = v
+          if (v) result[v] = `${v}.html`
         })
       } else if (this._isPages(mode_name_cli)) {
         for (const item of mode_name_cli) {
-          if (item) result[item] = item
+          if (item) result[item] = `${item}.html`
         }
       } else {
         mode_name_cli.forEach((v) => {
-          result[v] = v
+          result[v] = `${v}.html`
         })
       }
     }
